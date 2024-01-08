@@ -6,6 +6,29 @@
         <meta name="robots" content="index, follow">
         <title>Luxe media</title>
         <link rel="stylesheet" href="luxe media.css">
+        <script>
+            // Fonction pour ajouter un commentaire
+function ajouterCommentaire() {
+    // Récupère le nom de la personne et le commentaire
+    var nom = document.getElementById("nameInput").value;
+    var commentaire = document.getElementById("commentInput").value;
+
+    // Vérifie si le champ de nom et de commentaire ne sont pas vides
+    if (nom.trim() !== "" && commentaire.trim() !== "") {
+        // Crée un nouvel élément li pour le commentaire avec le nom
+        var nouveauCommentaire = document.createElement("li");
+        nouveauCommentaire.className = "comment";
+        nouveauCommentaire.innerHTML = "<strong>" + nom + " :</strong> " + commentaire;
+
+        // Ajoute le commentaire à la liste des commentaires
+        document.getElementById("commentList").appendChild(nouveauCommentaire);
+
+        // Efface les champs de nom et de commentaire
+        document.getElementById("nameInput").value = "";
+        document.getElementById("commentInput").value = "";
+    }
+}
+        </script>
     </head>
     <body>
         <br><br> <br><br><br>
@@ -203,6 +226,28 @@ Certes ce n'est pas la vraie forme du cœur mais je l'utilise pour l'explication
 
 Alors actuellement c’est plus courant de voir les parents obliger à leurs enfants ce qu’ils feront dans la vie ; Alors fréquemment on condamne les parents mais moi je pense que les deux ont raison et c’est les parents qui juste fait une petite erreur ; parce que en vous mettant à la place du parent toi-même t’es respecté grande, classe et ton fils fait un travail de basse classe ça te ridiculisera, t’auras honte sur ce tu l’empêcheras de le faire ; et en se mettant à la place de l’enfant aucune personne n’aime se sentir bas, n’aime qu’on l’oblige quelque chose et cela même si il est encore petit ; d’où il n’aimera pas que son père ne l’oblige à faire quelque chose et surtout si c’est quelque chose qu’il n’aime pas ; là où je condamne les parents c’est le fait qu’ils n’aie pas utiliser une technique de manipulation ; on est incapable de faire quelque chose que quand l’on ne l’aime pas pour appuyer ceci je donnerais mon propre exemple : j’aime pas le dessin artistique, et en classe j’étais incapable de faire même le schéma d’une cellule végétale cependant j’obtenais 80 sur 80 en chimie matière jugé difficile mais parce que je l’aimais je pouvais, mais comme je n'aime pas le dessin, je ne pouvais pas ; Alors selon moi ce qu’il faut c’est donner cette amour à l’enfant, par exemple si vous voulez votre enfant grand entrepreneur il suffit juste de l’emmener dès son enfance à des conférence et il prendra plaisir ; ou encore si vous le voulez un basketteurs emmener le à des matches de basket et il prendra plaisir ; et les parents prenne souvent plaisir de le laisser grandir puis de l’orienter par force par après.
     </p> <br><br>
+    <br><br><br>
+
+    <!-- Section des commentaires -->
+<div id="commentSection">
+    <h2>Commentaires</h2>
+    <ul id="commentList"></ul>
+    <h3>Ajoutez un commentaire:</h3>
+    <input type="text" id="nameInput" placeholder="Votre nom"> <br> <br>
+    <textarea id="commentInput" placeholder="Ajouter un commentaire"></textarea> <br> <br>
+    <button onclick="ajouterCommentaire()">Ajouter</button> <br><br> 
+</div>
+
+<div style="text-align: right;">
+    <form action="https://formspree.io/f/moqgqgqa" method="post">
+        <h3>Un message pour l'auteur</h3>
+        <input type="text" placeholder="Votre nom" name="name"> <br><br>
+        <input type="email" placeholder="Votre adresse email" name="email"> <br><br>
+        <textarea name="message" id="" cols="30" rows="4" placeholder="Votre avis"></textarea> <br><br>
+        <input type="submit" value="Envoyer">
+    </form>
+</div> <br><br><br>
+
 
 
     </body>
