@@ -7,6 +7,7 @@
         <meta name="robots" content="index, follow">
         <title>contacter luxe media</title>
         <link rel="stylesheet" href="luxe media.css">
+         <script src="luxe media.js"></script>
     </head>
     <body>
         <header>
@@ -19,10 +20,10 @@
                     
                   <button id="left"> 
                   
-                    <select name="" id="">
+                    <select name="" id="selectMenu" onchange="goToPage()">
                         <option value="">menu</option>
-                        <option value=""><a href="index.html">accueil</a></option>
-                        <option value=""><a href="contact luxe media.html">nous contacter</a></option>
+                        <option value="index.html">accueil</option>
+                        <option value="contact luxe media.html"><a href="contact luxe media.html">nous contacter</a></option>
                     </select>
                   </button>
                 </ul>
@@ -31,7 +32,7 @@
         
         <br><br><br><br><br><br><br><br><br>
         <h1>Pour nous contacter veillez remplir ce formulaire</h1> <br><br>
-        <form action="https://formspree.io/f/moqgqgqa" method="post">
+        <form action="https://formspree.io/f/moqgqgqa" method="post" id="contactform">
             <label for="name">Tapez votre nom <br>
                 <input type="text" name="name" id="name" placeholder="name"> <br><br>
             </label>
