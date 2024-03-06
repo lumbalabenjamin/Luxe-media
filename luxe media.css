@@ -7,6 +7,7 @@ h2{
 }
 body{
     font-family: serif;
+    display: flexbox;
 }
 
 header{
@@ -50,6 +51,8 @@ div{
     border: 1px solid black;
     padding: 6%;
     text-align: center;
+    border-right: transparent;
+    border-left: transparent;
 }
 #article{
     height: 20%;
@@ -59,9 +62,8 @@ div{
     color: red;
 }
 #titre{
-    font-size:130%;
-    text-align:center;
-    margin-left:18%;
-    color:red;
-    margin-bottom:2%;
+    font-size: 130%;
+    color: red;
+    margin-left: 18%;
+    margin-bottom: 2%;
 }
