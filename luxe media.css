@@ -8,3 +8,53 @@ h2{
 body{
     font-family: serif;
 }
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 15%;
+    background-color: aliceblue;
+}
+nav{
+    background-color: aliceblue;
+    display:inline-flexbox ;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+nav li{
+    font-size: 200%;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 2%;
+   
+}
+#second{
+    color: red;
+}
+#left{
+    text-align: right;
+    margin-left: 70%;
+    background-color: white;
+    margin-top: 2%;
+}
+select{
+    border: transparent;
+    background-color: white;
+}
+div{
+    border: 1px solid black;
+    padding: 6%;
+    text-align: center;
+}
+#article{
+    height: 20%;
+    width: 94%;
+    font-size: 200%;
+    background-color: transparent;
+    color: red;
+}
