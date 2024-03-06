@@ -8,6 +8,7 @@ h2{
 body{
     font-family: serif;
     display: flexbox;
+    margin-left:2%;
 }
 
 header{
