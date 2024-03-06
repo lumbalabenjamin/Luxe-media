@@ -6,30 +6,7 @@
         <meta name="robots" content="index, follow">
         <title>Réponse aux questions non répondues</title>
         <link rel="stylesheet" href="luxe media.css">
-        <script>
-            // Fonction pour ajouter un commentaire
-function ajouterCommentaire() {
-    // Récupère le nom de la personne et le commentaire
-    var nom = document.getElementById("nameInput").value;
-    var commentaire = document.getElementById("commentInput").value;
-
-    // Vérifie si le champ de nom et de commentaire ne sont pas vides
-    if (nom.trim() !== "" && commentaire.trim() !== "") {
-        // Crée un nouvel élément li pour le commentaire avec le nom
-        var nouveauCommentaire = document.createElement("li");
-        nouveauCommentaire.className = "comment";
-        nouveauCommentaire.innerHTML = "<strong>" + nom + " :</strong> " + commentaire;
-
-        // Ajoute le commentaire à la liste des commentaires
-        document.getElementById("commentList").appendChild(nouveauCommentaire);
-
-        // Efface les champs de nom et de commentaire
-        document.getElementById("nameInput").value = "";
-        document.getElementById("commentInput").value = "";
-    }
-}s
-
-        </script>
+       
         <script src="luxe media.js"></script>
     </head>
     <body>
