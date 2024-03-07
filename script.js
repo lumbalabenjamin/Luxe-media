@@ -8,35 +8,37 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function addComment() {
+    var nameInput = document.getElementById('nameInput').value;
     var commentInput = document.getElementById('commentInput').value;
-    if (commentInput.trim() === '') {
-        alert('Please enter a comment.');
+    if (nameInput.trim() === '' || commentInput.trim() === '') {
+        alert('Please enter your name and a comment.');
         return;
     }
 
     var commentDiv = document.createElement('div');
     commentDiv.className = 'comment';
-    commentDiv.textContent = commentInput;
+    commentDiv.innerHTML = '<strong>' + nameInput + ':</strong> ' + commentInput;
 
     document.getElementById('comments').appendChild(commentDiv);
+    document.getElementById('nameInput').value = '';
     document.getElementById('commentInput').value = '';
 
-    saveComment(commentInput); // Enregistrer le commentaire
+    saveComment(nameInput, commentInput); // Enregistrer le commentaire
 }
 
-function saveComment(comment) {
+function saveComment(name, comment) {
     var comments = getCommentsFromStorage();
-    comments.push(comment);
+    comments.push({ name: name, comment: comment });
     localStorage.setItem('comments', JSON.stringify(comments));
 }
 
 function loadComments() {
     var comments = getCommentsFromStorage();
     var commentsContainer = document.getElementById('comments');
-    comments.forEach(function(comment) {
+    comments.forEach(function(item) {
         var commentDiv = document.createElement('div');
         commentDiv.className = 'comment';
-        commentDiv.textContent = comment;
+        commentDiv.innerHTML = '<strong>' + item.name + ':</strong> ' + item.comment;
         commentsContainer.appendChild(commentDiv);
     });
 }
