@@ -5,3 +5,80 @@ function goToPage() {
         window.location.href = selectedValue;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadComments(); // Charger les commentaires lors du chargement de la page
+
+    var addCommentBtn = document.getElementById('addCommentBtn');
+    addCommentBtn.addEventListener('click', function () {
+        addComment();
+    });
+});
+
+function addComment() {
+    var nameInput = document.getElementById('nameInput').value;
+    var commentInput = document.getElementById('commentInput').value;
+    if (nameInput.trim() === '' || commentInput.trim() === '') {
+        alert('Please enter your name and a comment.');
+        return;
+    }
+
+    var commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+    commentDiv.innerHTML = '<strong>' + nameInput + ':</strong> ' + commentInput;
+
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', function () {
+        deleteComment(commentDiv);
+    });
+
+    commentDiv.appendChild(deleteButton);
+
+    document.getElementById('comments').appendChild(commentDiv);
+    document.getElementById('nameInput').value = '';
+    document.getElementById('commentInput').value = '';
+
+    saveComment(nameInput, commentInput); // Enregistrer le commentaire
+}
+
+function saveComment(name, comment) {
+    var comments = getCommentsFromStorage();
+    comments.push({ name: name, comment: comment });
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function loadComments() {
+    var comments = getCommentsFromStorage();
+    var commentsContainer = document.getElementById('comments');
+    comments.forEach(function(item) {
+        var commentDiv = document.createElement('div');
+        commentDiv.className = 'comment';
+        commentDiv.innerHTML = '<strong>' + item.name + ':</strong> ' + item.comment;
+
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', function () {
+            deleteComment(commentDiv);
+        });
+
+        commentDiv.appendChild(deleteButton);
+        commentsContainer.appendChild(commentDiv);
+    });
+}
+
+function deleteComment(commentDiv) {
+    var comments = getCommentsFromStorage();
+    var commentText = commentDiv.innerText.trim();
+    comments = comments.filter(function(item) {
+        return (item.name + ': ' + item.comment) !== commentText;
+    });
+    localStorage.setItem('comments', JSON.stringify(comments));
+    commentDiv.parentNode.removeChild(commentDiv);
+}
+
+function getCommentsFromStorage() {
+    var comments = localStorage.getItem('comments');
+    return comments ? JSON.parse(comments) : [];
+}
