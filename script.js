@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+   document.addEventListener('DOMContentLoaded', function () {
     loadComments(); // Charger les commentaires lors du chargement de la page
 
     var addCommentBtn = document.getElementById('addCommentBtn');
