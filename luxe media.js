@@ -67,15 +67,6 @@ function loadComments() {
     });
 }
 
-function deleteComment(commentDiv) {
-    var comments = getCommentsFromStorage();
-    var commentText = commentDiv.innerText.trim();
-    comments = comments.filter(function(item) {
-        return (item.name + ': ' + item.comment) !== commentText;
-    });
-    localStorage.setItem('comments', JSON.stringify(comments));
-    commentDiv.parentNode.removeChild(commentDiv);
-}
 
 function getCommentsFromStorage() {
     var comments = localStorage.getItem('comments');
