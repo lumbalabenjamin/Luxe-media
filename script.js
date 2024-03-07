@@ -1,4 +1,13 @@
-   document.addEventListener('DOMContentLoaded', function () {
+function goToPage() {
+    var selectElement = document.getElementById("selectMenu");
+    var selectedValue = selectElement.value;
+    if (selectedValue !== "") {
+        window.location.href = selectedValue;
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
     loadComments(); // Charger les commentaires lors du chargement de la page
 
     var addCommentBtn = document.getElementById('addCommentBtn');
