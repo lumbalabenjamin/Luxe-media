@@ -6,7 +6,6 @@ function goToPage() {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
     loadComments(); // Charger les commentaires lors du chargement de la page
 
@@ -28,11 +27,6 @@ function addComment() {
     commentDiv.className = 'comment';
     commentDiv.innerHTML = '<strong>' + nameInput + ':</strong> ' + commentInput;
 
-   
-    });
-
-    commentDiv.appendChild(deleteButton);
-
     document.getElementById('comments').appendChild(commentDiv);
     document.getElementById('nameInput').value = '';
     document.getElementById('commentInput').value = '';
@@ -53,9 +47,9 @@ function loadComments() {
         var commentDiv = document.createElement('div');
         commentDiv.className = 'comment';
         commentDiv.innerHTML = '<strong>' + item.name + ':</strong> ' + item.comment;
+        commentsContainer.appendChild(commentDiv);
     });
 }
-
 
 function getCommentsFromStorage() {
     var comments = localStorage.getItem('comments');
