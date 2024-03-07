@@ -8,6 +8,17 @@
         <title>Luxe media</title>
         <link rel="stylesheet" href="luxe media.css">
        <script src="luxe media.js"></script>
+        <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
+        <script>
+  const beamsClient = new PusherPushNotifications.Client({
+    instanceId: '48c75993-2621-4320-bf0c-29350223d7ae',
+  });
+
+  beamsClient.start()
+    .then(() => beamsClient.addDeviceInterest('hello'))
+    .then(() => console.log('Successfully registered and subscribed!'))
+    .catch(console.error);
+</script>
     </head>
     <body>
        <html>
