@@ -56,11 +56,7 @@ function loadComments() {
         commentDiv.className = 'comment';
         commentDiv.innerHTML = '<strong>' + item.name + ':</strong> ' + item.comment;
 
-        var deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', function () {
-            deleteComment(commentDiv);
-        });
+      
 
         commentDiv.appendChild(deleteButton);
         commentsContainer.appendChild(commentDiv);
