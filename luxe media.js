@@ -27,6 +27,14 @@ function addComment() {
     commentDiv.className = 'comment';
     commentDiv.innerHTML = '<strong>' + nameInput + ':</strong> ' + commentInput;
 
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', function () {
+        deleteComment(commentDiv);
+    });
+
+    commentDiv.appendChild(deleteButton);
+
     document.getElementById('comments').appendChild(commentDiv);
     document.getElementById('nameInput').value = '';
     document.getElementById('commentInput').value = '';
@@ -47,8 +55,26 @@ function loadComments() {
         var commentDiv = document.createElement('div');
         commentDiv.className = 'comment';
         commentDiv.innerHTML = '<strong>' + item.name + ':</strong> ' + item.comment;
+
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', function () {
+            deleteComment(commentDiv);
+        });
+
+        commentDiv.appendChild(deleteButton);
         commentsContainer.appendChild(commentDiv);
     });
+}
+
+function deleteComment(commentDiv) {
+    var comments = getCommentsFromStorage();
+    var commentText = commentDiv.innerText.trim();
+    comments = comments.filter(function(item) {
+        return (item.name + ': ' + item.comment) !== commentText;
+    });
+    localStorage.setItem('comments', JSON.stringify(comments));
+    commentDiv.parentNode.removeChild(commentDiv);
 }
 
 function getCommentsFromStorage() {
