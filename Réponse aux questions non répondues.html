@@ -8,10 +8,15 @@
         <link rel="stylesheet" href="luxe media.css">
          <link rel="icon" href="LOGOLM.jpg">
 
-        <script src="script.js"></script>
-        <script src="luxe .js">
-        </script>
-        
+        <script src="script.js">
+            function goToPage() {
+            var selectElement = document.getElementById("selectMenu");
+            var selectedValue = selectElement.value;
+            if (selectedValue !== "") {
+            window.location.href = selectedValue;
+                }
+            }
+        </script>        
     </head>
     <body>
          <header>
