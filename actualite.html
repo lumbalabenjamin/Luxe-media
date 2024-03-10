@@ -1,0 +1,114 @@
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="ce site résume l'actualité de tous les jours">
+        <meta name="robots" content="index, follow">
+        <title>Actualité</title>
+        <link rel="stylesheet" href="luxe media.css">
+        <link rel="icon" href="LOGOLM.jpg" type="image/jpg">
+        <script src="luxe media.js">
+            document.addEventListener('DOMContentLoaded', function () {
+    loadComments(); // Charger les commentaires lors du chargement de la page
+
+    var addCommentBtn = document.getElementById('addCommentBtn');
+    addCommentBtn.addEventListener('click', function () {
+        addComment();
+    });
+});
+
+function addComment() {
+    var nameInput = document.getElementById('nameInput').value;
+    var commentInput = document.getElementById('commentInput').value;
+    if (nameInput.trim() === '' || commentInput.trim() === '') {
+        alert('Please enter your name and a comment.');
+        return;
+    }
+
+    var commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+    commentDiv.innerHTML = '<strong>' + nameInput + ':</strong> ' + commentInput;
+
+    document.getElementById('comments').appendChild(commentDiv);
+    document.getElementById('nameInput').value = '';
+    document.getElementById('commentInput').value = '';
+
+    saveComment(nameInput, commentInput); // Enregistrer le commentaire
+}
+
+function saveComment(name, comment) {
+    var comments = getCommentsFromStorage();
+    comments.push({ name: name, comment: comment });
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function loadComments() {
+    var comments = getCommentsFromStorage();
+    var commentsContainer = document.getElementById('comments');
+    comments.forEach(function(item) {
+        var commentDiv = document.createElement('div');
+        commentDiv.className = 'comment';
+        commentDiv.innerHTML = '<strong>' + item.name + ':</strong> ' + item.comment;
+        commentsContainer.appendChild(commentDiv);
+    });
+}
+
+function getCommentsFromStorage() {
+    var comments = localStorage.getItem('comments');
+    return comments ? JSON.parse(comments) : [];
+}
+
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        Luxe
+                    </li>
+                    <li id="second">media</li>
+
+                  
+                    
+                  <button id="left"> 
+                  
+                    <select name="" id="selectMenu" onchange="goToPage()">
+                        <option value="">menu</option>
+                        <option value="index.html">accueil</option>
+                        <option value="contact luxe media.html">nous contacter</option>
+                    </select>
+                  </button>
+
+                  <li id="act">
+                    <a href="actualite.html">
+                        <button  id="actualite">
+                            Actualité
+                        </button>
+                    </a>
+                   </li>
+
+                   <li id="act">
+                        <a href="https://14b0b281.sibforms.com/serve/MUIFABrB48t7vIgH8eB4gfJbllX_JihSKK_h1hUkBxqKKBzrr_FWDwkDH-o7uz8F6t4Wk5CTErwfIYGaCS2M-Cn7sZ5eSEjZzAGwhDA80s2iXy8Dw2RfM2qLY4Ft2VxVFT8-gyNnHFK1dqhHJRccuqfPpYra7VFQ_C_5ivoBIraDv9ltnPDuqdW4rlAVm1hPXJdCLj49yYHFnPLG">
+                            <button id="ab">S'abonner</button>
+                        </a>
+                   </li> <br>
+
+                </ul>
+            </nav>
+        </header> <br><br><br><br><br><br> <br><br><br><br>
+      
+        <div>
+            <a href="actualite8mars.html">
+                <button id="article">
+                    Actualité du 8 mars 2024
+                </button>
+            </a>
+        </div>
+        
+
+        <br><br><br><br><br>
+     
+    
+    </body>
+</html>
